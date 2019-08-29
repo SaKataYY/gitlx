@@ -1,0 +1,33 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+    <!--
+      配置前端控制器DispatcherServlet
+    -->
+
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--设置初始化参数,指定springmvc.xml的配置文件,tomcat启动的时候加载该配置-->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <!--
+          完全匹配:   /DispatcherServlet
+          目录匹配:   /aaa/bbb/DispatcherServlet
+          扩展名匹配:   *.do  *.action
+
+          浏览器访问的路径:
+          localhost:8080/day26/itemList.action
+        -->
+        <url-pattern>*.action</url-pattern>
+    </servlet-mapping>
+
+</web-app>
